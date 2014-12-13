@@ -5,6 +5,25 @@ snippet jwphp
 
   ?>
 
+snippet jw-hook_permission
+/**
+ * Implements hook_permission().
+ */
+function lezeni_pro_rodice_permission() {
+  return array(
+    /*
+     *'administer my module' =>  array(
+     *  'title' => t('Administer my module'),
+     *  'description' => t('Perform administration tasks for my module.'),
+     *),
+     */
+    '' =>  array(
+      'title' => t(''),
+      'description' => t(''),
+    ),
+  );
+}
+
 snippet jwcomment
  /**
   * ${1}
