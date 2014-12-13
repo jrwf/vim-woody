@@ -1,0 +1,57 @@
+snippet jwphp
+  <?php
+    
+     ${1}    
+
+  ?>
+
+snippet jwcomment
+ /**
+  * ${1}
+  */
+  ${2}
+
+snippet jw-EntityFieldQuery()
+    $content = array();
+    $query = new EntityFieldQuery();
+    $result = $query->entityCondition('entity_type', 'node')
+                    ->entityCondition('bundle', 'article')
+                    // ->entityCondition('entity_id', array(17, 21,422), 'IN')
+                    // ->entityCondition('revision_id', $revision_id, '=')
+                    // ->entityCondition('bundle', array('article', 'page'))
+                    ->propertyCondition('status', 1)
+                    // ->propertyCondition('type', array('article', 'page', 'blog'))
+                    // ->propertyCondition('uid', $uid)
+                    // ->propertyCondition('uri', '%.jpg', 'LIKE')
+                    // ->propertyCondition('type', 'image');
+                    // ->fieldCondition('field_', 'value', 'hodnota', '=')
+                    // ->fieldCondition('body', 'value', 'A', 'STARTS_WITH')
+                    // ->fieldCondition('field_categories', 'tid', array('12','13'), 'IN')
+                    // ->fieldOrderBy('field_jmeno pole', 'fid', 'DESC')
+                    // ->propertyOrderBy('created', 'DESC')
+                    ->pager(10)
+                    ->range(0, 10)
+                    // ->addTag('random')
+                    ->addMetaData('account', user_load(1))
+                    ->execute();
+    
+    $nodes = node_load_multiple(array_keys($result['node']));
+    
+    $content = node_view_multiple($nodes, 'teaser');
+    $data = array(
+        'content'=> $content,
+        'pager'=> array(
+          '#markup'=> theme('pager'),
+          '#weight'=>10
+    ));
+    
+        /*foreach ($nodes as $uzel) {
+          $data .= l($uzel->title, 'node/' . $uzel->nid) . '<br />';
+          //$data .= format_date(strtotime($uzel->field_kalendar['und']['0']['value']), 'custom', 'd. m. Y') . '<br />';
+        }*/
+    
+    $output .= render($data); 
+    $output = 'cosi';
+    return $output;
+
+
