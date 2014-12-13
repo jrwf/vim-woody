@@ -15,7 +15,7 @@ snippet jw-hook_help
   /**
    * Implements hook_help().
    */
-  function lezeni_pro_rodice_help($path, $arg) {
+  function hook_help($path, $arg) {
     switch ($path) {
       // Main module help for the block module
       /*
@@ -25,6 +25,32 @@ snippet jw-hook_help
       case '${1}':
         return '<p>' . t('${2}', array('${3}' => ${4})) . '</p>';
     }
+  }
+
+snippet jw-hook_menu
+  /**
+   * Implements hook_menu().
+   */
+  function hook_menu() {
+    /*
+     *$items['blog'] = array(
+     *  'title' => 'blogs',
+     *  'page callback' => 'blog_page',
+     *  'access arguments' => array('access content'),
+     *  'type' => MENU_SUGGESTED_ITEM,
+     *);
+     */
+    $items['${1}'] = array(
+      'title' => '${2}',
+      'page callback' => '${3}',
+      'page arguments' => array(),
+      'access arguments' => array('${4}'),
+      // 'access_callback' =>
+      'type' => ${5},
+      //'file' => ,
+    );
+
+    return $items;
   }
 
 snippet jwphp
