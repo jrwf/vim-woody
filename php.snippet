@@ -152,3 +152,11 @@ snippet jw-form-textfield
     '#default_value' => variable_get('', ''),
   );
 
+snippet jw-form-submit
+  /**
+   * ${1} 
+   */
+  function ${2}_form_submit($form, &$form_state) {
+    $${3} = $form_state['values']['${3}'];
+    drupal_set_message('');
+  }
