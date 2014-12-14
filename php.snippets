@@ -153,11 +153,21 @@ snippet jw-form-textfield
   );
 
 snippet jw-form-textarea
-  $form['${$1}'] = array(
+  $form['${1}'] = array(
     '#type' => 'textarea',
     '#title' => t('${2}'),
     '#description' => t('${3}'),
-    #'#default_value' => isset(  $context['keywords']) ? drupal_implode_tags($context['keywords']) : '',
+    // '#default_value' => isset(  $context['keywords']) ? drupal_implode_tags($context['keywords']) : '',
+  );
+
+snippet jw-form-radio
+  $form['student_type'] = array(
+    '#type' => 'radios',
+    '#options' => array(
+      '${1}'   => t('${2}'),
+      // 'high_school'   => t('High School'),
+    ),
+    '#title' => t('${3}')
   );
 
 snippet jw-form-submit
@@ -181,4 +191,8 @@ snippet jw-form-submit-insert-to-database
     ))
   ->execute();  
   drupal_set_message('odesláno', $status = 'status');
+
+snippet jw-form-state
+ $${1} = $form_state['values']['$1'];  
+ // $jmeno = $form_state['values']['jmeno'];  
 
