@@ -159,10 +159,13 @@ snippet jw-form-textfield
   $form['${1}'] = array(
     '#type' => 'textfield', 
     '#title' => t('${2}'),
+    '#title_display' => 'before/after/invisible/attribute',
     '#required' => TRUE,
     '#description' => t('${3}'),
     '#size' => 20,
     '#default_value' => variable_get('', ''),
+    '#prefix' => '<div class="nejaka-trida">',
+    '#suffix' => '</div>', 
   );
 
 # Textarea - textove pole pro vkladani dlouheho textu.
@@ -171,7 +174,20 @@ snippet jw-form-textarea
     '#type' => 'textarea',
     '#title' => t('${2}'),
     '#description' => t('${3}'),
+    '#cols' => '20',
+    '#rows' => '5',
+    '#resizable' => TRUE,
     // '#default_value' => isset(  $context['keywords']) ? drupal_implode_tags($context['keywords']) : '',
+  );
+
+# Textarea s moznosti vyberu textoveho formatu.
+snippet jw-form-text-format
+  $form['description'] = array(
+    '#type' => 'text_format',
+    '#title' => t('Description'),
+    '#default_value' => $term->description,
+    '#format' => $term->format,
+    '#weight' => 0,
   );
 
 # Select box
@@ -222,6 +238,7 @@ snippet jw-form-select-box
       1 => t('One'),
       2 => t('Two'),
     ),
+    '#multiple' => FALSE,
   );  
 
 # Checkbox
@@ -268,6 +285,21 @@ snippet jw-form-date
     '#type' => 'date',
     '#title' => t('Datum:'),
     '#description' => t('Zvolte si datum.'),
+  );
+
+# File
+snippet jw-form-file
+  $form['soubor'] = array(
+    '#type' => 'file',
+    '#title' => t('Soubor:'),
+    '#description' => t('Vyberte soubor.'),
+  );
+
+# Skryte pole
+snippet jw-form-hidden
+  $form['skryty_soubor'] = array(
+    '#type' => 'hidden',
+    '#value' => $obsah,
   );
 
 # Fieldset
