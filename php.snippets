@@ -152,6 +152,7 @@ snippet jw-form-textfield
     '#default_value' => variable_get('', ''),
   );
 
+# Textarea - textove pole pro vkladani dlouheho textu.
 snippet jw-form-textarea
   $form['${1}'] = array(
     '#type' => 'textarea',
@@ -160,6 +161,7 @@ snippet jw-form-textarea
     // '#default_value' => isset(  $context['keywords']) ? drupal_implode_tags($context['keywords']) : '',
   );
 
+# Radio pole.
 snippet jw-form-radio
   $form['student_type'] = array(
     '#type' => 'radios',
@@ -170,6 +172,7 @@ snippet jw-form-radio
     '#title' => t('${3}')
   );
 
+# Funkce na odeslani dat do databaze.
 snippet jw-form-submit
   /**
    * ${1} 
@@ -179,6 +182,7 @@ snippet jw-form-submit
     drupal_set_message('');
   }
 
+# Ulozeni do databaze
 snippet jw-form-submit-insert-to-database
   db_insert('${1:name-of-database}')
   ->fields(array(
