@@ -163,7 +163,6 @@ snippet jw-form-textarea
   );
 
 # Select box
-
 snippet jw-form-select-box
   /*
   $pole = array();
@@ -180,9 +179,9 @@ snippet jw-form-select-box
     '#description' => t('Set this to <em>Yes</em> if you would like this category to be selected by default.'),
   );
   */
-  $form['${1:nazev-pole}'] = array(
+  $form['${1:strojovy-nazev}'] = array(
     '#type' => 'select',
-    '#title' => t('${2:Citelne jmeno.}'),
+    '#title' => t('${2:citelne-jmeno-pole.}'),
     '#options' => array(
       1 => t('One'),
       2 => t('Two'),
