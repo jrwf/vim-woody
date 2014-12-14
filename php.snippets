@@ -142,9 +142,10 @@ snippet jw-form-function
     return $form;
   }
 
+# Textove pole
 snippet jw-form-textfield
   $form['${1}'] = array(
-    '#type' => 'textfield',
+    '#type' => 'textfield', 
     '#title' => t('${2}'),
     '#required' => TRUE,
     '#description' => t('${3}'),
@@ -160,6 +161,33 @@ snippet jw-form-textarea
     '#description' => t('${3}'),
     // '#default_value' => isset(  $context['keywords']) ? drupal_implode_tags($context['keywords']) : '',
   );
+
+# Select box
+
+snippet jw-form-select-box
+  /*
+  $pole = array();
+  $result = db_query("select id_firma, firma from {prace_firma}");
+  foreach($result as $record) {    
+      $pole[$record->firma] = $record->firma;
+  }  
+  
+  $form['id_firma'] = array(
+    '#type' => 'select',
+    '#title' => t('Firma:'),
+    '#options' => $pole,
+    //'#default_value' => $category['selected'],
+    '#description' => t('Set this to <em>Yes</em> if you would like this category to be selected by default.'),
+  );
+  */
+  $form['${1:nazev-pole}'] = array(
+    '#type' => 'select',
+    '#title' => t('${2:Citelne jmeno.}'),
+    '#options' => array(
+      1 => t('One'),
+      2 => t('Two'),
+    ),
+  );  
 
 # Radio pole.
 snippet jw-form-radio
