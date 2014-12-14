@@ -237,6 +237,37 @@ snippet jw-form-radio
     '#title' => t('${3}')
   );
 
+# Pole pro heslo
+snippet jw-form-heslo
+  $form['heslo'] = array(
+    '#type' => 'password',
+    '#title' => t('Zadejte heslo:'),
+    '#description' => t('Vlozte text.'),
+  );
+
+  $form['heslo_znova'] = array(
+    '#type' => 'password_confirm',
+    '#title' => t('Kontrola hesla:'),
+    '#description' => t('Vlozte heslo jeste jednou.'),
+  );
+
+snippet jw-form-date
+  $form['datum'] = array(
+    '#type' => 'date',
+    '#title' => t('Datum:'),
+    '#description' => t('Zvolte si datum.'),
+  );
+
+# Fieldset
+snippet jw-form-fieldset
+  $form['${1}'] = array(
+  // $form['jmenomodulu_nazevfieldseru'] = array(
+    '#type' => 'fieldset', 
+    '#title' => t('${2:Nazev bloku}.'),
+    '#collapsible' => 'TRUE', 
+    '#collapsed' => 'FALSE', 
+  );
+
 # Validacni funkce
 snippet jw-form-validate
   function ${1}_form_validate($form, &$form_state) {
