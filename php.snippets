@@ -212,6 +212,8 @@ snippet jw-form-select-box
     ),
   );  
 
+# Checkbox
+# http://stackoverflow.com/questions/8284065/how-to-insert-checkboxes-values-to-sql
 snippet jw-form-checkbox
   $form['copy'] = array(
     '#type' => 'checkbox', 
@@ -234,6 +236,14 @@ snippet jw-form-radio
     ),
     '#title' => t('${3}')
   );
+
+# Validacni funkce
+snippet jw-form-validate
+  function ${1}_form_validate($form, &$form_state) {
+    if($form_state['values']['${2}']) {
+      form_set_error('$2', t('${3}'));
+    }
+  }
 
 # Funkce na odeslani dat do databaze.
 snippet jw-form-submit
