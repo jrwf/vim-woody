@@ -59,6 +59,18 @@ snippet jw-hook_menu
 
     return $items;
   }
+# $items - dalsi polozka menu
+snippet jw-hook_menu-items
+  $items['${1:cesta}'] = array(
+    'title' => '${2:nazev-stranky}',
+    'page callback' => '${3:funkce-s-obsahem-stranky}',
+    // 'page arguments' => array(''),
+    'access arguments' => array('access content'),
+    // 'access_callback' =>
+    'type' => MENU_NORMAL_ITEM,
+    // 'type' => MENU_CALLBACK,
+    // 'file' => nazev_souboru.inc,
+  );
 
 snippet jw-hook_permission
   /**
