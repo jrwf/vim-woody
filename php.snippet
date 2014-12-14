@@ -1,3 +1,10 @@
+snippet jwphp
+  <?php
+    
+     ${1}    
+
+  ?>
+
 snippet jw-module.info
   name = ${1}
   description = Modul na XML export pro lezeni_pro_rodice cen.
@@ -53,13 +60,6 @@ snippet jw-hook_menu
     return $items;
   }
 
-snippet jwphp
-  <?php
-    
-     ${1}    
-
-  ?>
-
 snippet jw-hook_permission
   /**
    * Implements hook_permission().
@@ -79,7 +79,7 @@ snippet jw-hook_permission
     );
   }
 
-snippet jwcomment
+snippet jw-comment
  /**
   * ${1}
   */
@@ -127,4 +127,28 @@ snippet jw-EntityFieldQuery()
     $output = 'cosi';
     return $output;
 
+snippet jw-form-function
+  /**
+   * ${1}
+   */
+  function ${2}_form($form, &$form_state) {
+
+    ${3}
+
+    $form['submit'] = array(
+      '#value' => 'Odeslat',
+      '#type' => 'submit',
+    );
+    return $form;
+  }
+
+snippet jw-form-textfield
+  $form['${1}'] = array(
+    '#type' => 'textfield',
+    '#title' => t('${2}'),
+    '#required' => TRUE,
+    '#description' => t('${3}'),
+    '#size' => 20,
+    '#default_value' => variable_get('', ''),
+  );
 
