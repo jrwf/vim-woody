@@ -1,7 +1,7 @@
 snippet jw-php-block
   <?php
-    
-     ${1}    
+
+     ${1}
 
   ?>
 
@@ -20,9 +20,9 @@ snippet jw-module.info
   name = ${1}
   description = Modul na XML export pro lezeni_pro_rodice cen.
   core = 7.x
-  package = 
+  package =
 
-  files[] = ${1}.module		
+  files[] = ${1}.module
 
   ;configure = admin/config/administration/${1}
 
@@ -58,13 +58,6 @@ snippet jw-hook_menu
      *  'type' => MENU_SUGGESTED_ITEM,
      *);
      *
-     *  MENU_NORMAL_ITEM - Normal menu items show up in the menu tree and can be moved/hidden by the administrator
-     *  MENU_CALLBACK - Callbacks simply register a path so that the correct information is generated when the path is accessed.
-     *  MENU_SUGGESTED_ITEM - Modules may "suggest" menu items that the administrator may enable.
-     *  MENU_LOCAL_ACTION - Local actions are menu items that describe actions on the parent item such as adding a new user or block, and are rendered in the action-links list in your theme.
-     *  MENU_LOCAL_TASK - Local tasks are menu items that describe different displays of data, and are generally rendered as tabs.
-     *  MENU_DEFAULT_LOCAL_TASK - Every set of local tasks should provide one "default" task, which
-     *  should display the same page as the parent item.
      */
     $items['${2}'] = array(
       'title' => '${3}',
@@ -138,9 +131,9 @@ snippet jw-EntityFieldQuery()
                     // ->addTag('random')
                     ->addMetaData('account', user_load(1))
                     ->execute();
-    
+
     $nodes = node_load_multiple(array_keys($result['node']));
-    
+
     $content = node_view_multiple($nodes, 'teaser');
     $data = array(
         'content'=> $content,
@@ -148,13 +141,13 @@ snippet jw-EntityFieldQuery()
           '#markup'=> theme('pager'),
           '#weight'=>10
     ));
-    
+
         /*foreach ($nodes as $uzel) {
           $data .= l($uzel->title, 'node/' . $uzel->nid) . '<br />';
           //$data .= format_date(strtotime($uzel->field_kalendar['und']['0']['value']), 'custom', 'd. m. Y') . '<br />';
         }*/
-    
-    $output .= render($data); 
+
+    $output .= render($data);
     $output = 'cosi';
     return $output;
 
@@ -176,7 +169,7 @@ snippet jw-form-function
 # Textove pole
 snippet jw-form-textfield
   $form['${1}'] = array(
-    '#type' => 'textfield', 
+    '#type' => 'textfield',
     '#title' => t('${2}'),
     '#title_display' => 'before/after/invisible/attribute',
     '#required' => TRUE,
@@ -184,7 +177,7 @@ snippet jw-form-textfield
     '#size' => 20,
     '#default_value' => variable_get('', ''),
     '#prefix' => '<div class="nejaka-trida">',
-    '#suffix' => '</div>', 
+    '#suffix' => '</div>',
   );
 
 # Textarea - textove pole pro vkladani dlouheho textu.
@@ -214,10 +207,10 @@ snippet jw-form-select-box
   /*
   $pole = array();
   $result = db_query("select id_firma, firma from {prace_firma}");
-  foreach($result as $record) {    
+  foreach($result as $record) {
       $pole[$record->firma] = $record->firma;
-  }  
-  
+  }
+
   $form['id_firma'] = array(
     '#type' => 'select',
     '#title' => t('Firma:'),
@@ -258,13 +251,13 @@ snippet jw-form-select-box
       2 => t('Two'),
     ),
     '#multiple' => FALSE,
-  );  
+  );
 
 # Checkbox
 # http://stackoverflow.com/questions/8284065/how-to-insert-checkboxes-values-to-sql
 snippet jw-form-checkbox
   $form['copy'] = array(
-    '#type' => 'checkbox', 
+    '#type' => 'checkbox',
     '#title' => t('Send me a copy.'),
   );
 
@@ -325,10 +318,10 @@ snippet jw-form-hidden
 snippet jw-form-fieldset
   $form['${1}'] = array(
   // $form['jmenomodulu_nazevfieldseru'] = array(
-    '#type' => 'fieldset', 
+    '#type' => 'fieldset',
     '#title' => t('${2:Nazev bloku}.'),
-    '#collapsible' => 'TRUE', 
-    '#collapsed' => 'FALSE', 
+    '#collapsible' => 'TRUE',
+    '#collapsed' => 'FALSE',
   );
 
 # Validacni funkce
@@ -342,7 +335,7 @@ snippet jw-form-validate
 # Funkce na odeslani dat do databaze.
 snippet jw-form-submit
   /**
-   * ${1} 
+   * ${1}
    */
   function ${2}_form_submit($form, &$form_state) {
     $${3} = $form_state['values']['$3'];
@@ -360,12 +353,12 @@ snippet jw-form-submit-insert-to-database
       'popis' => $popis,
       //'description2' => $description2,
     ))
-  ->execute();  
+  ->execute();
   drupal_set_message('odesláno', $status = 'status');
 
 snippet jw-form-state
- $${1} = $form_state['values']['$1'];  
- // $jmeno = $form_state['values']['jmeno'];  
+ $${1} = $form_state['values']['$1'];
+ // $jmeno = $form_state['values']['jmeno'];
 
 snippet jw-l()
   l('${1}', '${2}', array('attributes' => array('class' => '')));
