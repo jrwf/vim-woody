@@ -52,9 +52,27 @@ snippet jw-hook_menu
   function ${1}_menu() {
     /*
      *$items['blog'] = array(
+     *  // Povinna polozka udavajici titulek zaznamu v menu.
      *  'title' => 'blogs',
+     *  // Nazev funkce generujici titulek stranky, standardne se pocita s funkci t(), uvedeli se zde hodnota FALSE, pak Drupal pouzije jako titulek
+     *  rovnou retezec.
+     *  'title_collback' => ,
+     *  'title_argument' => ,
+     *  'description' => '',
      *  'page callback' => 'blog_page',
+     *  'page arguments' => '',
+     *  'delivery callback' => '',
+     *  'access callback' => ,
      *  'access arguments' => array('access content'),
+     *  'theme callback' => ,
+     *  'theme arguments' => ,
+     *  'file' => '.inc',
+     *  'file path' => '',
+     *  'load arguments' => '',
+     *  'weight' => '',
+     *  'menu_name' => '',
+     *  'expanded' => '',
+     *  'context' => '',
      *  'type' => MENU_SUGGESTED_ITEM,
      *);
      *  MENU_NORMAL_ITEM - Normal menu items show up in the menu tree and can be moved/hidden by the administrator
