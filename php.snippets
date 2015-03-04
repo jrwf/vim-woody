@@ -176,6 +176,15 @@ snippet jw-EntityFieldQuery()
     $output = 'cosi';
     return $output;
 
+snippet jw-db_query
+  // $result = db_query_range('SELECT n.nid, n.title, n.created FROM {node} n WHERE n.uid = :uid ORDER BY n.created DESC', 0, 10, array(':uid' => $uid));
+  $result = db_query_range('SELECT ${1:*} FROM {${2}} ${3:n} WHERE ${4}', 0, 10, array(':${5}' => ${6}));
+  foreach ($result as $record) {
+    // Perform operations on $record->title, etc. here.
+    // $output .= $record->nid . ' - ' . $record->title . '<br />';
+    ${7:$output .=}
+  }
+
 snippet jw-form-function
   /**
    * ${1}
@@ -203,6 +212,7 @@ snippet jw-form-textfield
     '#default_value' => variable_get('', ''),
     '#prefix' => '<div class="nejaka-trida">',
     '#suffix' => '</div>',
+    '#access' => user_access(''),
   );
 
 # Textarea - textove pole pro vkladani dlouheho textu.
@@ -214,6 +224,7 @@ snippet jw-form-textarea
     '#cols' => '20',
     '#rows' => '5',
     '#resizable' => TRUE,
+    '#access' => user_access(''),
     // '#default_value' => isset(  $context['keywords']) ? drupal_implode_tags($context['keywords']) : '',
   );
 
@@ -225,6 +236,7 @@ snippet jw-form-text-format
     '#default_value' => $term->description,
     '#format' => $term->format,
     '#weight' => 0,
+    '#access' => user_access(''),
   );
 
 # Select box
@@ -284,6 +296,7 @@ snippet jw-form-checkbox
   $form['copy'] = array(
     '#type' => 'checkbox',
     '#title' => t('Send me a copy.'),
+    '#access' => user_access(''),
   );
 
   $form['tests_taken'] = array(
@@ -301,6 +314,7 @@ snippet jw-form-radio
       // 'high_school'   => t('High School'),
     ),
     '#title' => t('${3}')
+    '#access' => user_access(''),
   );
 
 # Pole pro heslo
@@ -309,12 +323,14 @@ snippet jw-form-heslo
     '#type' => 'password',
     '#title' => t('Zadejte heslo:'),
     '#description' => t('Vlozte text.'),
+    '#access' => user_access(''),
   );
 
   $form['heslo_znova'] = array(
     '#type' => 'password_confirm',
     '#title' => t('Kontrola hesla:'),
     '#description' => t('Vlozte heslo jeste jednou.'),
+    '#access' => user_access(''),
   );
 
 snippet jw-form-date
@@ -322,6 +338,7 @@ snippet jw-form-date
     '#type' => 'date',
     '#title' => t('Datum:'),
     '#description' => t('Zvolte si datum.'),
+    '#access' => user_access(''),
   );
 
 # File
@@ -330,6 +347,7 @@ snippet jw-form-file
     '#type' => 'file',
     '#title' => t('Soubor:'),
     '#description' => t('Vyberte soubor.'),
+    '#access' => user_access(''),
   );
 
 # Skryte pole
@@ -337,6 +355,7 @@ snippet jw-form-hidden
   $form['skryty_soubor'] = array(
     '#type' => 'hidden',
     '#value' => $obsah,
+    '#access' => user_access(''),
   );
 
 # Fieldset
@@ -347,6 +366,7 @@ snippet jw-form-fieldset
     '#title' => t('${2:Nazev bloku}.'),
     '#collapsible' => 'TRUE',
     '#collapsed' => 'FALSE',
+    '#access' => user_access(''),
   );
 
 # Validacni funkce
