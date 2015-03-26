@@ -178,11 +178,23 @@ snippet jw-EntityFieldQuery()
 
 snippet jw-db_query
   // $result = db_query_range('SELECT n.nid, n.title, n.created FROM {node} n WHERE n.uid = :uid ORDER BY n.created DESC', 0, 10, array(':uid' => $uid));
-  $result = db_query_range('SELECT ${1:*} FROM {${2}} ${3:n} WHERE ${4}', 0, 10, array(':${5}' => ${6}));
+
+  // This code:
+  // db_query("SELECT * FROM {node} WHERE nid IN (:nids)", array(':nids' => array(13, 42, 144));
+  // Will get turned into this prepared statement equivalent automatically:
+  // db_query("SELECT * FROM {node} WHERE nid IN (:nids_1, :nids_2, :nids_3)", array(
+    //':nids_1' => 13, 
+    //':nids_2' => 42, 
+    //':nids_3' => 144,
+  //));
+  // Which is equivalent to the following literal query:
+  // db_query("SELECT * FROM {node} WHERE nid IN (13, 42, 144)");
+
+  // $result = db_query('SELECT n.field_nom_plante FROM {node} n INNER JOIN {page--node} pn ON pn.field_categories =n.field_category_plante WHERE n.type = :type', array(':type' => 'plante'));
+
+  $result = db_query('SELECT * FROM tabulka', array(':' => ));
   foreach ($result as $record) {
-    // Perform operations on $record->title, etc. here.
     // $output .= $record->nid . ' - ' . $record->title . '<br />';
-    ${7:$output .=}
   }
 
 snippet jw-form-function
