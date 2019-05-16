@@ -1314,3 +1314,8 @@ snippet video
 snippet wbr
 	<wbr />
 
+snippet jw-nette-debug
+    Debugger::barDump(${1:$variable}, '${2:Jmeno pro menne}');
+
+snippet jw-nette-redirect
+    $this->redirect('${1:Presenter:Metoda}:', array("${2:id}" => ${3:parametr}));
