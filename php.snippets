@@ -1323,26 +1323,26 @@ snippet nette-redirect
     $this->redirect('${1:Presenter:Metoda}:', array("${2:id}" => ${3:parametr}));
 
 snippet nette-ismedia-s3Bucket
-    $this->s3Bucket${0}
+    $this->s3Bucket${1}
 
 snippet nette-ismedia-httpsBucket
-    $this->httpsBucket${0}
+    $this->httpsBucket${1}
 
 #Nette form
 snippet nette-form-text
-    $form->addText('${0:zip}', '${1:PSČ}:')
+    $form->addText('${1:zip}', '${2:PSČ}:')
 
 snippet nette-form-password
-    $form->addPassword('${0:password}', '${1:Heslo}:')
+    $form->addPassword('${1:password}', '${2:Heslo}:')
 
 snippet nette-form-textarea
-    $form->addTextArea('${0:note}', '${1:Poznámka}:')
+    $form->addTextArea('${1:note}', '${2:Poznámka}:')
 
 snippet nette-form-email
-    $form->addEmail('${0:email}', '${1:E-mail}:');
+    $form->addEmail('${1:email}', '${2:E-mail}:');
 
 snippet nette-form-integer
-    $form->addInteger('${0:level}', '${1:Úroveň}:')
+    $form->addInteger('${1:level}', '${2:Úroveň}:')
 
 
 
