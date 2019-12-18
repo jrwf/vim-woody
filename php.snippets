@@ -1344,8 +1344,29 @@ snippet nette-form-email
 snippet nette-form-integer
     $form->addInteger('${1:level}', '${2:Úroveň}:')${3}
 
+snippet nette-form-upload
+    $form->addUpload('${1:logo}', '${2:Logo}:')${3}
 
+snippet nette-form-multiupload
+    $form->addMultiUpload('${1:files}', '${2:Soubory}')${3}
 
+snippet nette-form-hidden
+    $form->addHidden('${1:userid}')${3}
+
+snippet nette-form-checkbox
+    $form->addCheckbox('${1:agree}', '${2:Souhlasím s podmínkami}')${3}
+
+snippet nette-form-radiolist
+    $form->addRadioList('${1:gender}', '${2:Pohlaví}:', ${3:$sex})${4}
+
+snippet nette-form-radiolist-do-jednoho-radku
+    $form->addRadioList('${1:gender}', '${2:Pohlaví}:', ${3:$sex})${4}
+	->getSeparatorPrototype()->setName(null);
+
+snippet nette-form-checkbox-list
+    $form->addCheckboxList('${1:colors}', '${2:Barvy}:', [
+        ${3:key} => '${4:value}',${5}
+    ]);
 
 
 
