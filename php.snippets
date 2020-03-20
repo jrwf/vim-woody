@@ -1316,6 +1316,9 @@ snippet wbr
 
 #NETTE
 #=====================
+snippet nette-debug bdump();
+    bdump($${1:$variable}, '${2:popis}');
+
 snippet nette-debug
     Debugger::barDump($${1:$variable}, '${2:Jmeno pro menne}');
 
